@@ -1,0 +1,7 @@
+.env
+.env.local
+google-token.json
+node_modules/
+dist/
+*.log
+logs/

@@ -1,0 +1,48 @@
+<!doctype html>
+<html lang="th">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>LermLearn setup</title>
+    <style>
+      :root{color-scheme:dark;font-family:Inter,Segoe UI,sans-serif;background:#070a10;color:#f7f8fb}*{box-sizing:border-box}body{margin:0;min-height:100vh;display:grid;place-items:center;background:radial-gradient(circle at 12% 0,#192b47 0,transparent 38%),radial-gradient(circle at 100% 100%,#321329 0,transparent 40%),#070a10}.card{width:min(760px,calc(100vw - 40px));max-height:calc(100vh - 32px);overflow:auto;padding:36px;border:1px solid #28354b;border-radius:28px;background:rgba(11,18,30,.96);box-shadow:0 30px 90px #0008}.mark{width:56px;height:56px;display:grid;place-items:center;overflow:hidden;border-radius:16px;background:transparent url('assets/lermlearn-icon.png') center/contain no-repeat;box-shadow:0 10px 24px #0005}.eyebrow{margin:20px 0 8px;color:#62b3ff;font-size:12px;font-weight:800;letter-spacing:.16em}.card h1{margin:0;font-size:30px;line-height:1.15}.card p{color:#a8b3c5;line-height:1.55}.field{display:block;margin:20px 0 7px;color:#dfe7f2;font-weight:700}.field small{display:block;margin-top:6px;color:#8290a6;font-weight:400;line-height:1.45}.input-row{display:flex;gap:10px;margin-top:9px}.input-row input,.input-row select{flex:1;min-width:0;padding:13px 15px;border:1px solid #34445e;border-radius:13px;background:#070d17;color:#fff;font-size:14px;outline:none}.input-row input:focus,.input-row select:focus{border-color:#54a9ff;box-shadow:0 0 0 3px #2688ff33}.toggle{border:1px solid #34445e;border-radius:13px;background:#111b2c;color:#b9c6d8;padding:0 15px;cursor:pointer}.guide{margin:18px 0;padding:16px 18px;border:1px solid #263a58;border-radius:16px;background:#0a1423;color:#a8b3c5;font-size:13px}.guide strong{color:#f2f6fc}.guide ol{margin:10px 0 0;padding-left:20px}.guide li{margin:5px 0}.links{display:flex;gap:12px;flex-wrap:wrap;margin-top:10px}.actions{display:flex;justify-content:flex-end;gap:12px;margin-top:24px}.button{border:0;border-radius:13px;padding:13px 20px;background:linear-gradient(135deg,#ff3158,#d60d44);color:#fff;font-weight:800;cursor:pointer}.button:disabled{opacity:.55;cursor:wait}.hint{font-size:12px!important;color:#8290a6!important}.warning{margin-top:16px;padding:14px 16px;border:1px solid #8b6b2d;border-radius:14px;background:#2b2411;color:#f4df9b;font-size:12px;line-height:1.6}.status{min-height:20px;margin:12px 0 0;color:#ff9aaf;font-size:13px}.link{color:#79bdff;text-decoration:none}.link:hover{text-decoration:underline}@media(max-width:560px){.card{padding:24px}.card h1{font-size:26px}.input-row{display:block}.toggle{height:44px;margin-top:8px;width:100%}}
+    </style>
+  </head>
+  <body>
+    <main class="card">
+      <div class="mark" aria-label="LermLearn"></div>
+      <div class="eyebrow">LERMLEARN CONNECTION SETUP</div>
+      <h1>ตั้งค่า AI ก่อนเริ่มใช้งาน</h1>
+      <p>กรอก AI API key ของคุณเพียงอย่างเดียว จากนั้นกดเชื่อมต่อ Google Classroom ในแอปเพื่อเลือกอีเมลและอนุญาตสิทธิ์ที่จำเป็น</p>
+      <div class="guide">
+        <strong>สิ่งที่ต้องทำครั้งแรก</strong>
+        <ol>
+          <li>เลือกผู้ให้บริการ AI และใส่ API key ของคุณ</li>
+          <li>กดบันทึกเพื่อเปิด LermLearn</li>
+          <li>กด “เชื่อมต่อ Google Classroom” แล้วเลือกบัญชี Google ของคุณ</li>
+          <li>ตรวจสอบรายการสิทธิ์และกดยอมรับ หากบัญชีโรงเรียนถูกนโยบายผู้ดูแลระบบบล็อก อาจเชื่อมต่อไม่ได้</li>
+        </ol>
+        <div class="links">
+          <a class="link" href="https://bailian.console.alibabacloud.com/?tab=api#/api-key">สร้าง Qwen API key (แนะนำ)</a>
+          <a class="link" href="https://aistudio.google.com/app/apikey">สร้าง Gemini API key</a>
+          <a class="link" href="https://platform.deepseek.com/api_keys">สร้าง DeepSeek API key</a>
+          <a class="link" href="https://console.cloud.google.com/apis/library">เปิด Google Cloud APIs</a>
+        </div>
+      </div>
+      <label class="field" for="aiProvider">ผู้ให้บริการ AI<small>แนะนำ Qwen สำหรับสรุปเอกสาร สร้างข้อสอบ และแฟลชการ์ด ส่วน Gemini และ DeepSeek ใช้เป็นทางเลือกได้</small></label>
+      <div class="input-row"><select id="aiProvider"><option value="qwen">Qwen (แนะนำ)</option><option value="deepseek">DeepSeek</option><option value="openai">OpenAI</option></select></div>
+      <label class="field" for="apiKey">AI API key<small>คีย์จะถูกเก็บไว้เฉพาะเครื่องนี้ ห้ามแชร์คีย์กับผู้อื่นและห้ามใส่คีย์ลงใน GitHub</small></label>
+      <div class="input-row"><input id="apiKey" type="password" autocomplete="off" spellcheck="false" placeholder="วาง API key ของผู้ให้บริการที่เลือก"><button class="toggle" data-toggle="apiKey" type="button">แสดง</button></div>
+      <div class="warning"><strong>เกี่ยวกับ Google Calendar และความเป็นส่วนตัว</strong><br>LermLearn สามารถอ่านตารางจาก Google Calendar เพื่อใช้ประกอบการวางแผนการเรียนและการทำงาน โดยคำนึงถึงเวลาว่าง เวลาพัก และเวลานอนของผู้ใช้<br>ในเวอร์ชันทดลอง ระบบยังไม่แก้ไขข้อมูลใน Google Calendar โดยตรง เพื่อจำกัดสิทธิ์การเข้าถึงข้อมูลส่วนตัวของผู้ใช้และเพิ่มความปลอดภัย ปฏิทินการทำงานของ LermLearn สามารถจัดและแก้ไขแผนได้ภายในแอป<br>แม้ไม่ต้องเพิ่ม Test users แล้ว Google อาจยังแสดงคำเตือนว่าแอปยังไม่ผ่านการยืนยัน ผู้ใช้ควรตรวจสอบสิทธิ์ก่อนกดยอมรับ และบัญชีโรงเรียนอาจถูกนโยบายของผู้ดูแลระบบบล็อกได้</div>
+      <p class="hint">การเชื่อมต่อ Google ถูกเตรียมไว้ในโปรแกรมแล้ว หลังบันทึกคีย์ให้กดเชื่อมต่อ Google Classroom และเลือกบัญชีของคุณ</p>
+      <div class="status" id="status" role="status" aria-live="polite"></div>
+      <div class="actions"><button class="button" id="save" type="button">บันทึกและเปิด LermLearn</button></div>
+    </main>
+    <script>
+      const provider=document.querySelector('#aiProvider'),apiKey=document.querySelector('#apiKey'),save=document.querySelector('#save'),status=document.querySelector('#status');
+      document.querySelectorAll('[data-toggle]').forEach(button=>button.onclick=()=>{const input=document.querySelector('#'+button.dataset.toggle);const hidden=input.type==='password';input.type=hidden?'text':'password';button.textContent=hidden?'ซ่อน':'แสดง'});
+      (async()=>{try{const meta=await window.studyflowDesktop?.getApiConfigMeta?.();if(meta?.provider)provider.value=meta.provider;if(meta?.hasApiKey)apiKey.placeholder='วาง API key ใหม่เพื่อแทนที่คีย์เดิม';}catch{}})();
+      save.onclick=async()=>{const key=apiKey.value.trim();if(key.length<20){status.textContent='กรุณาใส่ AI API key ให้ครบถ้วน';apiKey.focus();return}save.disabled=true;status.textContent='กำลังบันทึกการตั้งค่า…';try{const result=await window.studyflowDesktop.saveApiConfig({provider:provider.value,apiKey:key});if(!result?.ok)throw new Error(result?.message||'บันทึกไม่สำเร็จ');status.textContent='บันทึกแล้ว กำลังเปิด LermLearn…'}catch(error){save.disabled=false;status.textContent=error.message||'บันทึกไม่สำเร็จ'}};
+    </script>
+  </body>
+</html>

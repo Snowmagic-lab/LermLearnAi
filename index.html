@@ -1,0 +1,177 @@
+<!doctype html>
+<html lang="th">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
+    <meta name="theme-color" content="#05070b" />
+    <title>LermLearn — Orbit Study OS</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=IBM+Plex+Mono:wght@400;500;600&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=Space+Grotesk:wght@500;600;700&display=swap" rel="stylesheet" />
+    <link rel="stylesheet" href="styles.css" />
+    <link rel="stylesheet" href="study-room.css" />
+    <link rel="stylesheet" href="calendar-planner.css" />
+    <link rel="stylesheet" href="premium-ui.css" />
+    <link rel="stylesheet" href="major-redesign.css" />
+    <link rel="stylesheet" href="lermlearn-brand.css" />
+  </head>
+  <body>
+    <div class="app-shell" id="app-shell">
+      <aside class="sidebar" id="app-sidebar" aria-label="พื้นที่ทำงาน LermLearn">
+        <div class="sidebar-header">
+          <div class="brand" aria-label="LermLearn">
+            <img class="brand-icon" src="assets/lermlearn-icon.png" alt="" />
+            <span class="brand-copy"><strong>LermLearn</strong><small>เริ่มเรียน เริ่มเรียน</small></span>
+          </div>
+          <button class="sidebar-close" id="sidebar-close" type="button" aria-label="ปิดเมนู"><svg class="sf-icon" viewBox="0 0 24 24"><path d="m6 6 12 12M18 6 6 18" /></svg></button>
+        </div>
+
+        <div class="workspace-switcher" role="button" tabindex="0" aria-label="Personal space นักเรียน">
+          <span class="avatar">P</span>
+          <span><strong>Personal space</strong><small>นักเรียน · Orbit workspace</small></span>
+          <span class="chevron" aria-hidden="true">⌄</span>
+        </div>
+
+        <div class="nav-group">
+          <p class="nav-group-label">Workspace</p>
+          <nav class="nav" aria-label="เมนูหลัก">
+            <button class="nav-item active" data-view="dashboard" type="button"><span aria-hidden="true"><svg class="sf-icon" viewBox="0 0 24 24"><path d="M4 13h6V4H4v9Zm10 7h6v-9h-6v9ZM4 20h6v-3H4v3Zm10-12h6V4h-6v4Z" /></svg></span>ภาพรวม</button>
+            <button class="nav-item" data-view="tasks" type="button"><span aria-hidden="true"><svg class="sf-icon" viewBox="0 0 24 24"><path d="M5 6h14M5 12h14M5 18h9" /><path d="M3 6h.01M3 12h.01M3 18h.01" /></svg></span>งานทั้งหมด <b class="nav-badge">7</b></button>
+            <button class="nav-item" data-view="calendar" type="button"><span aria-hidden="true"><svg class="sf-icon" viewBox="0 0 24 24"><rect x="4" y="5" width="16" height="15" rx="2" /><path d="M8 3v4M16 3v4M4 10h16M8 14h.01M12 14h.01M16 14h.01M8 17h.01M12 17h.01" /></svg></span>ปฏิทิน</button>
+            <button class="nav-item" data-view="classroom" type="button"><span aria-hidden="true"><svg class="sf-icon" viewBox="0 0 24 24"><path d="M4 5.5A2.5 2.5 0 0 1 6.5 3H20v16H6.5A2.5 2.5 0 0 0 4 21.5v-16Z" /><path d="M4 5.5A2.5 2.5 0 0 1 6.5 8H20M8 11h8M8 14h5" /></svg></span>ห้องเรียน <b class="nav-badge classroom-badge-count">0</b></button>
+            <button class="nav-item" data-view="study" type="button"><span aria-hidden="true"><svg class="sf-icon" viewBox="0 0 24 24"><path d="M12 3 14.2 9.8 21 12l-6.8 2.2L12 21l-2.2-6.8L3 12l6.8-2.2L12 3Z" /><path d="m18.5 4 .5 1.5L20.5 6 19 6.5 18.5 8 18 6.5 16.5 6 18 5.5 18.5 4Z" /></svg></span>ห้องติว</button>
+          </nav>
+        </div>
+
+        <div class="sidebar-section">
+          <p>Connection</p>
+          <div class="connection"><span class="google-dot" aria-hidden="true"></span><span>Google Classroom</span><span class="status-dot" aria-label="สถานะการเชื่อมต่อ"></span></div>
+        </div>
+
+        <div class="sidebar-bottom">
+          <p class="nav-group-label">System</p>
+          <button class="nav-item" data-view="settings" type="button"><span aria-hidden="true"><svg class="sf-icon" viewBox="0 0 24 24"><path d="M12 8.5a3.5 3.5 0 1 0 0 7 3.5 3.5 0 0 0 0-7Z" /><path d="m19 13.2 1.4 1.1-1.6 2.8-1.7-.6a7.4 7.4 0 0 1-1.8 1l-.2 1.8h-3.2l-.3-1.8a7.4 7.4 0 0 1-1.8-1l-1.7.6-1.6-2.8L8 13.2a7 7 0 0 1 0-2.4L6.6 9.7l1.6-2.8 1.7.6a7.4 7.4 0 0 1 1.8-1l.3-1.8h3.2l.2 1.8a7.4 7.4 0 0 1 1.8 1l1.7-.6 1.6 2.8L19 10.8a7 7 0 0 1 0 2.4Z" /></svg></span>ตั้งค่า</button>
+          <div class="profile"><span class="avatar purple">?</span><span><strong>Google account</strong><small>ตรวจสถานะการเชื่อมต่อ</small></span></div>
+        </div>
+      </aside>
+
+      <div class="nav-scrim" id="nav-scrim" aria-hidden="true"></div>
+
+      <main class="main-content">
+        <header class="topbar">
+          <div class="topbar-leading">
+            <button class="shell-back" id="global-back" type="button" aria-label="ย้อนกลับ" title="ย้อนกลับ" disabled>←</button>
+            <button class="shell-toggle" id="sidebar-toggle" type="button" aria-label="เปิดหรือย่อเมนู" aria-expanded="true"><svg class="sf-icon" viewBox="0 0 24 24"><path d="M4 6h16M4 12h11M4 18h16" /></svg></button>
+            <div class="topbar-copy">
+              <div class="page-kicker-row"><p class="eyebrow">ORBIT STUDY OS · THU 14 AUG 2026</p></div>
+              <h1 id="page-title">สวัสดี <span class="wave" aria-hidden="true">✦</span></h1>
+              <p class="page-context" id="page-context">พื้นที่วางแผนการเรียนที่จัดระเบียบให้คุณทีละวงโคจร</p>
+            </div>
+          </div>
+          <div class="topbar-actions">
+            <button class="command-btn" id="command-center" type="button" aria-label="เปิดศูนย์คำสั่ง"><svg class="sf-icon" viewBox="0 0 24 24"><circle cx="11" cy="11" r="6.5" /><path d="m16 16 4 4M8.5 11h5M11 8.5v5" /></svg><span>Command center</span><kbd>⌘K</kbd></button>
+            <button class="icon-btn notification" aria-label="การแจ้งเตือน" type="button"><svg class="sf-icon" viewBox="0 0 24 24"><path d="M18 9a6 6 0 0 0-12 0c0 7-3 7-3 9h18c0-2-3-2-3-9ZM10 21h4" /></svg><i aria-hidden="true"></i></button>
+          </div>
+        </header>
+
+        <section id="dashboard-view" class="view active-view" aria-labelledby="page-title">
+          <div class="dashboard-overview">
+            <div class="dashboard-overline reveal">
+              <div><span class="eyebrow">TODAY'S ORBIT</span><h2>จัดจังหวะของคุณ<br /><em>ให้เบาลง</em></h2></div>
+              <p>StudyFlow รวมกำหนดส่ง เวลาติว และช่วงทำงานไว้ในภาพเดียว เพื่อให้คุณเดินหน้าได้โดยไม่ต้องแลกกับเวลาพัก</p>
+            </div>
+
+            <div class="hero-grid reveal">
+              <article class="focus-card">
+                <div class="card-label"><span class="live-dot" aria-hidden="true"></span> Focus signal · วันนี้</div>
+                <h2>ทำทีละก้าว<br /><em>สบายขึ้นเยอะ</em></h2>
+                <p>พื้นที่โฟกัสของคุณพร้อมแล้ว เริ่มจากงานที่สำคัญที่สุดและเก็บแรงไว้ให้ชีวิตส่วนที่เหลือ</p>
+                <button class="ghost-btn" id="start-focus" type="button">เริ่มโฟกัส <span aria-hidden="true">→</span></button>
+                <div class="orb orb-one" aria-hidden="true"></div><div class="orb orb-two" aria-hidden="true"></div>
+              </article>
+              <article class="progress-card">
+                <div class="card-head"><div><span class="card-label">WEEKLY VELOCITY</span><strong class="big-number">68<span>%</span></strong></div><div class="trend">↗ 12% <small>จากสัปดาห์ก่อน</small></div></div>
+                <div class="progress-track" aria-label="ความคืบหน้าสัปดาห์นี้ 68 เปอร์เซ็นต์"><span style="width:68%"></span></div>
+                <div class="progress-meta"><span>ทำเสร็จแล้ว 12 งาน</span><span>เหลืออีก 5 งาน</span></div>
+                <div class="mini-bars" aria-hidden="true"><i style="height:35%"></i><i style="height:54%"></i><i style="height:45%"></i><i style="height:78%"></i><i style="height:62%"></i><i class="today" style="height:92%"></i><i style="height:42%"></i></div>
+                <div class="weekdays" aria-hidden="true"><span>จ</span><span>อ</span><span>พ</span><span>พฤ</span><span>ศ</span><span>ส</span><span>อา</span></div>
+              </article>
+            </div>
+
+            <div class="section-heading reveal"><div><span class="eyebrow">YOUR PLAN</span><h2>วงโคจรของวันนี้</h2></div><button class="text-btn" data-view="calendar" type="button">เปิดปฏิทินทั้งหมด →</button></div>
+            <div class="dashboard-lower reveal">
+              <section class="tasks-panel" aria-labelledby="today-plan-title">
+                <div class="panel-header"><div><h3 id="today-plan-title">แผนที่ต้องขยับ</h3><div class="panel-meta"><span class="status-dot" aria-hidden="true"></span><span>อัปเดตจาก Google Classroom</span></div></div><span class="eyebrow">LIVE QUEUE</span></div>
+                <div class="panel-tabs" role="tablist" aria-label="ช่วงเวลางาน"><button class="tab active" data-period="today" type="button">วันนี้ <span>0</span></button><button class="tab" data-period="tomorrow" type="button">พรุ่งนี้ <span>0</span></button><button class="tab" data-period="week" type="button">สัปดาห์นี้ <span>0</span></button><button class="tab" data-period="next-week" type="button">สัปดาห์หน้า <span>0</span></button></div>
+                <div id="task-list" class="task-list"></div>
+              </section>
+              <aside class="insight-card" aria-labelledby="insight-title"><div><div class="insight-icon" aria-hidden="true">✦</div><span class="eyebrow">SMART INSIGHT</span><h3 id="insight-title">สัญญาณจากแผนของคุณ</h3><p>เชื่อมต่อ Classroom แล้วเปิดวงโคจรของงาน เพื่อให้ระบบช่วยมองเห็นสิ่งที่ควรทำต่อไป</p></div><button class="link-btn" data-view="calendar" type="button">ดูภาพรวมเวลา <span aria-hidden="true">↗</span></button></aside>
+            </div>
+
+            <div class="dashboard-strip reveal">
+              <button class="quick-action" type="button" data-command="focus"><svg class="sf-icon" viewBox="0 0 24 24"><circle cx="12" cy="12" r="8" /><circle cx="12" cy="12" r="3" /><path d="M12 2v2M22 12h-2M12 22v-2M2 12h2" /></svg><span><strong>เริ่ม focus sprint</strong><small>25 นาที · ลดสิ่งรบกวน</small></span></button>
+              <button class="quick-action" type="button" data-command="calendar"><svg class="sf-icon" viewBox="0 0 24 24"><path d="M5 4v3M19 4v3M4 9h16M6 12h4M6 16h7" /><rect x="4" y="5" width="16" height="15" rx="2" /></svg><span><strong>จัดเวลาทั้งสัปดาห์</strong><small>แบ่งงานไม่ให้ถมกัน</small></span></button>
+              <div class="system-status"><svg class="sf-icon" viewBox="0 0 24 24"><path d="M12 3v4M5.6 5.6l2.8 2.8M3 12h4M5.6 18.4l2.8-2.8M12 21v-4M18.4 18.4l-2.8-2.8M21 12h-4M18.4 5.6l-2.8 2.8" /><circle cx="12" cy="12" r="3" /></svg><span><strong>Orbit system</strong><small>พร้อมช่วยจัดลำดับและเตือนคุณ</small></span></div>
+            </div>
+          </div>
+        </section>
+
+        <section id="tasks-view" class="view" aria-labelledby="tasks-title">
+          <div class="view-head"><div><span class="eyebrow">TASK CONSTELLATION</span><h2 id="tasks-title">งานทั้งหมด</h2><p>ดูงานที่ยังอยู่ในวงโคจรของสัปดาห์นี้ แยกตามสถานะและกำหนดส่งได้ทันที</p></div><div class="view-actions"><button class="command-btn" data-command="sync" type="button"><svg class="sf-icon" viewBox="0 0 24 24"><path d="M20 7v5h-5M4 17v-5h5" /><path d="M18.2 12a6.5 6.5 0 0 0-11.6-3.8L4 10M5.8 12a6.5 6.5 0 0 0 11.6 3.8L20 14" /></svg><span>Sync now</span></button><button class="primary-btn" id="quick-add-2" type="button">＋ เพิ่มงาน</button></div></div>
+          <div class="filter-row" role="tablist" aria-label="ตัวกรองงาน"><button class="filter active" data-filter="week" type="button">ทั้งหมดในสัปดาห์นี้ <span>0</span></button><button class="filter" data-filter="week-active" type="button">กำลังทำ <span>0</span></button><button class="filter" data-filter="week-done" type="button">เสร็จแล้ว <span>0</span></button></div>
+          <div id="all-task-list" class="task-list full"></div>
+        </section>
+
+        <section id="calendar-view" class="view" aria-labelledby="calendar-title">
+          <div class="view-head"><div><span class="eyebrow">TIME ORBIT</span><h2 id="calendar-title">ปฏิทินการเรียน</h2><p>แยก deadline, เวลาติว และช่วงลงมือทำให้อยู่ในแผนเดียว</p></div></div>
+          <div class="calendar"><div class="calendar-week"><span>จันทร์</span><span>อังคาร</span><span>พุธ</span><span>พฤหัสบดี</span><span>ศุกร์</span><span>เสาร์</span><span>อาทิตย์</span></div><div class="calendar-grid" id="calendar-grid"></div></div>
+        </section>
+
+        <section id="study-view" class="view" aria-labelledby="study-title">
+          <div class="view-head"><div><span class="eyebrow">KNOWLEDGE ORBIT</span><h2 id="study-title">ห้องติว</h2><p>เลือกห้องเรียนและบทที่อยากเข้าใจ แล้วให้ StudyFlow ช่วยจัดเนื้อหาให้เป็นเส้นทางที่จำง่าย</p></div></div>
+          <div class="study-hero"><div><span class="eyebrow">AI STUDY ROOM</span><h2>กำลังเตรียมห้องติว<br /><em>ของคุณ</em></h2><p>กำลังเชื่อมโยง Classroom และหัวข้อการเรียน</p></div><div class="study-symbol" aria-hidden="true">✺</div></div>
+        </section>
+
+        <section id="classroom-view" class="view" aria-labelledby="classroom-hub-title">
+          <div class="view-head"><div><span class="eyebrow">CLASSROOM ATLAS</span><h2 id="classroom-hub-title">ศูนย์ห้องเรียน</h2><p>รวมทุกห้อง วิชา งาน ประกาศ ไฟล์ และการส่งงานไว้ในพื้นที่เดียวของ StudyFlow</p></div></div>
+          <div id="classroom-hub-root"></div>
+        </section>
+
+        <section id="settings-view" class="view" aria-labelledby="settings-title">
+          <div class="view-head"><div><span class="eyebrow">SYSTEM CONTROL</span><h2 id="settings-title">ตั้งค่า</h2><p>ควบคุมการเชื่อมต่อ การพักผ่อน และรูปแบบการช่วยเหลือของ StudyFlow</p></div></div>
+          <div class="settings-card"><div class="setting-row"><div><strong>Google Classroom</strong><small>เชื่อมต่อเพื่อดึงงานและประกาศอัตโนมัติ</small></div><button class="connected-btn" id="open-google-settings" type="button">● เชื่อมต่อแล้ว</button></div><div class="setting-row"><div><strong>AI Provider</strong><small>เลือก QwenCloud, DeepSeek หรือ OpenAI และเปลี่ยน API key ได้โดยไม่เปิดเผยคีย์เดิม</small></div><button class="connected-btn" id="open-gemini-settings" type="button">⚙ ตั้งค่า AI</button></div><div class="setting-row sleep-window-row"><div><strong>เวลานอนขั้นต่ำ</strong><small>ระบบจะไม่จัดงานทับช่วงเวลานี้ และคุณสามารถปรับได้ตามต้องการ</small></div><div class="sleep-window-control"><label>เข้านอน<input id="sleep-start" type="time" lang="en-GB" value="23:00" aria-label="เวลาเข้านอน" /></label><span aria-hidden="true">ถึง</span><label>ตื่นนอน<input id="sleep-end" type="time" lang="en-GB" value="07:00" aria-label="เวลาตื่นนอน" /></label></div></div><div class="setting-row"><div><strong>แจ้งเตือนสรุปประกาศ</strong><small>สรุปโพสต์ยาว ๆ ก่อนแสดงเป็นแจ้งเตือน</small></div><label class="switch"><input type="checkbox" checked aria-label="แจ้งเตือนสรุปประกาศ" /><span></span></label></div></div>
+        </section>
+      </main>
+    </div>
+
+    <div class="command-palette" id="command-palette" hidden>
+      <div class="command-dialog" role="dialog" aria-modal="true" aria-labelledby="command-title">
+        <div class="command-search"><svg class="sf-icon" viewBox="0 0 24 24" aria-hidden="true"><circle cx="11" cy="11" r="6.5" /><path d="m16 16 4 4" /></svg><input id="command-input" type="search" autocomplete="off" placeholder="ค้นหาหน้า หรือคำสั่ง…" aria-label="ค้นหาคำสั่ง" /><kbd>ESC</kbd></div>
+        <div class="command-list" id="command-list"><h2 class="sr-only" id="command-title">ศูนย์คำสั่ง</h2></div>
+      </div>
+    </div>
+
+    <div class="task-detail-modal" id="task-detail-modal" hidden>
+      <section class="task-detail-dialog" role="dialog" aria-modal="true" aria-labelledby="task-detail-title">
+        <button class="modal-close" id="task-detail-close" type="button" aria-label="ปิดรายละเอียดงาน">×</button>
+        <span class="eyebrow">CLASSROOM TASK</span>
+        <h2 id="task-detail-title">รายละเอียดงาน</h2>
+        <p class="task-detail-due" id="task-detail-due"></p>
+        <div class="task-detail-description" id="task-detail-description">กำลังโหลดรายละเอียด…</div>
+        <div class="task-attachments" id="task-attachments"></div>
+        <div class="task-submit-box" id="task-submit-box" hidden>
+          <label for="task-submit-file">อัปโหลดไฟล์จากเครื่อง</label>
+          <input id="task-submit-file" type="file" />
+          <label for="task-submit-link">ลิงก์ไฟล์งานหรือเอกสารที่ต้องการส่ง</label>
+          <div><input id="task-submit-link" type="url" placeholder="https://drive.google.com/..." /><button class="primary-btn" id="task-submit-button" type="button">ส่งงาน</button></div>
+          <small>ตอนนี้รองรับการส่งลิงก์จาก Drive หรือเว็บโดยตรง ไฟล์แนบเดิมจะอ่านและเปิดจากรายการด้านบนได้</small>
+        </div>
+      </section>
+    </div>
+
+    <div class="toast" id="toast" role="status" aria-live="polite" aria-atomic="true">บันทึกแล้ว</div>
+    <script src="app.js?rev=orbit-2"></script>
+    <script src="shell-ui.js?rev=orbit-2"></script>
+    <script src="lermlearn-runtime.js"></script>
+  </body>
+</html>

@@ -1,0 +1,12 @@
+/* LermLearn brand: transparent mark plus readable live text for dark surfaces. */
+.brand{display:flex;align-items:center;gap:10px;min-width:0}
+.brand-icon{display:block;width:46px;height:46px;object-fit:contain;flex:0 0 auto;filter:drop-shadow(0 8px 16px rgba(0,0,0,.28))}
+.brand-copy{display:grid;gap:3px;min-width:0;line-height:1}
+.brand-copy strong{color:#f8fafc;font:800 21px/1 "Segoe UI",Inter,sans-serif;letter-spacing:-.045em;white-space:nowrap}
+.brand-copy small{color:#a8b8ce;font:600 9px/1.2 "Segoe UI",Tahoma,sans-serif;letter-spacing:.08em;white-space:nowrap}
+@media(max-width:720px){
+  .brand{gap:8px}
+  .brand-icon{width:40px;height:40px}
+  .brand-copy strong{font-size:18px}
+  .brand-copy small{font-size:8px}
+}

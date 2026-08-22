@@ -1,0 +1,165 @@
+/*
+ * StudyFlow — Obsidian Signal component layer
+ *
+ * This file is intentionally separate from the legacy base stylesheet so the
+ * visual system can evolve without touching Classroom, Calendar, or Study
+ * Room behavior.
+ */
+
+:root {
+  --sf-focus-ring: 0 0 0 4px rgba(51, 140, 255, .18);
+  --sf-glass: rgba(10, 18, 30, .72);
+  --sf-glass-strong: rgba(11, 20, 33, .9);
+}
+
+/* Shared surfaces */
+.surface,
+.modal,
+.dropdown-panel {
+  background: linear-gradient(145deg, rgba(17, 28, 45, .96), rgba(7, 12, 20, .98));
+  border: 1px solid var(--sf-border);
+  border-radius: var(--sf-radius-md);
+  box-shadow: var(--sf-shadow);
+}
+
+.modal-backdrop {
+  position: fixed;
+  inset: 0;
+  z-index: 60;
+  display: grid;
+  place-items: center;
+  padding: 20px;
+  background: rgba(2, 5, 9, .72);
+  backdrop-filter: blur(12px);
+  animation: sf-fade-in .2s var(--sf-ease);
+}
+
+.modal {
+  width: min(520px, 100%);
+  padding: clamp(20px, 4vw, 32px);
+  animation: sf-modal-in .28s var(--sf-ease);
+}
+
+.modal[hidden],
+.dropdown-panel[hidden] { display: none; }
+
+.modal-header,
+.modal-footer,
+.dropdown-item {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+}
+
+.modal-footer { justify-content: flex-end; margin-top: 24px; }
+
+.dropdown { position: relative; }
+
+.dropdown-panel {
+  position: absolute;
+  top: calc(100% + 8px);
+  right: 0;
+  z-index: 45;
+  min-width: 190px;
+  padding: 7px;
+  animation: sf-dropdown-in .2s var(--sf-ease);
+}
+
+.dropdown-item {
+  width: 100%;
+  min-height: 42px;
+  padding: 9px 11px;
+  border: 0;
+  border-radius: 9px;
+  background: transparent;
+  color: var(--sf-text-soft);
+  text-align: left;
+  cursor: pointer;
+}
+
+.dropdown-item:hover,
+.dropdown-item[aria-selected="true"] { background: rgba(51, 140, 255, .12); color: var(--sf-text); }
+
+/* Intentional loading/empty/error feedback */
+.skeleton {
+  position: relative;
+  overflow: hidden;
+  min-height: 14px;
+  border-radius: 6px;
+  background: rgba(137, 152, 173, .14);
+}
+
+.skeleton::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  transform: translateX(-100%);
+  background: linear-gradient(90deg, transparent, rgba(255, 255, 255, .1), transparent);
+  animation: sf-shimmer 1.35s infinite;
+}
+
+.state-card {
+  display: grid;
+  gap: 8px;
+  place-items: center;
+  min-height: 150px;
+  padding: 24px;
+  border: 1px dashed var(--sf-border);
+  border-radius: var(--sf-radius-md);
+  color: var(--sf-muted);
+  text-align: center;
+}
+
+.state-card strong { color: var(--sf-text-soft); }
+.state-card.error { border-color: rgba(255, 54, 85, .36); }
+.state-card.error strong { color: #ff9aaa; }
+.state-card.success { border-color: rgba(88, 223, 170, .32); }
+.state-card.success strong { color: #a4f1cf; }
+
+/* Keyboard and touch affordances */
+.nav-item,
+.tab,
+.filter,
+.calendar-tab,
+.topic-chip,
+.study-action,
+.icon-btn,
+.primary-btn,
+.ghost-btn,
+.text-btn,
+.link-btn,
+.check,
+.planner-date button,
+.calendar-nav button { touch-action: manipulation; }
+
+.text-btn,
+.link-btn { min-height: 40px; padding: 7px 2px; }
+
+/* View transition hooks used by app.js */
+.view.view-exit { animation: sf-view-exit .16s var(--sf-ease) both; }
+.view.view-enter { animation: sf-view-enter .34s var(--sf-ease) both; }
+
+@keyframes sf-fade-in { from { opacity: 0; } to { opacity: 1; } }
+@keyframes sf-modal-in { from { opacity: 0; transform: translateY(14px) scale(.97); } to { opacity: 1; transform: none; } }
+@keyframes sf-dropdown-in { from { opacity: 0; transform: translateY(-5px) scale(.98); } to { opacity: 1; transform: none; } }
+@keyframes sf-view-enter { from { opacity: 0; transform: translateY(10px); filter: blur(4px); } to { opacity: 1; transform: none; filter: none; } }
+@keyframes sf-view-exit { from { opacity: 1; } to { opacity: 0; transform: translateY(-5px); } }
+@keyframes sf-shimmer { to { transform: translateX(100%); } }
+
+@media (max-width: 700px) {
+  .modal-backdrop { align-items: end; padding: 12px; }
+  .modal { border-radius: 20px 20px 14px 14px; }
+  .dropdown-panel { left: 0; right: 0; min-width: 0; }
+  .three-calendar { display: flex; width: 100%; min-width: 0; overflow-x: auto; overflow-y: hidden; }
+  .three-calendar .planner-day { flex: 0 0 112px; min-width: 112px; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .skeleton::after { animation: none; }
+  .view.view-enter,
+  .view.view-exit,
+  .modal-backdrop,
+  .modal,
+  .dropdown-panel { animation: none; }
+}
